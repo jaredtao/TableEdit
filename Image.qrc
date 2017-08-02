@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/Project/import.png</file>
+        <file>Image/Project/importBlue.png</file>
+        <file>Image/Project/save.png</file>
+        <file>Image/Project/saveas.png</file>
+        <file>Image/Project/saveasBlue.png</file>
+        <file>Image/Project/saveBlue.png</file>
+        <file>Image/Table/append-mulit-row.png</file>
+        <file>Image/Table/append-mulit-rowB.png</file>
+        <file>Image/Table/append-row.png</file>
+        <file>Image/Table/append-rowB.png</file>
+        <file>Image/Table/clear.png</file>
+        <file>Image/Table/clearB.png</file>
+        <file>Image/Table/delete-row.png</file>
+        <file>Image/Table/delete-rowB.png</file>
+        <file>Image/Table/insert-below.png</file>
+        <file>Image/Table/insert-belowB.png</file>
+        <file>Image/Table/redo.png</file>
+        <file>Image/Table/redoB.png</file>
+        <file>Image/Table/undo.png</file>
+        <file>Image/Table/undoB.png</file>
+        <file>Image/Template/electrombile.png</file>
+        <file>Image/Template/electrombileG.png</file>
+        <file>Image/Template/fuelCar.png</file>
+        <file>Image/Template/fuelCarG.png</file>
+        <file>Image/Template/hybrid.png</file>
+        <file>Image/Template/hybridG.png</file>
+        <file>Image/Template/simpleTemplateIcon.png</file>
+        <file>Image/Template/simpleTemplateIconG.png</file>
+        <file>Image/Tools/arrowDownBlue.png</file>
+        <file>Image/Tools/arrowDownGray.png</file>
+        <file>Image/Tools/arrowUpBlue.png</file>
+        <file>Image/Tools/arrowUpGray.png</file>
+        <file>Image/Tools/checkG.png</file>
+        <file>Image/Tools/checkR.png</file>
+        <file>Image/Tools/importG.png</file>
+        <file>Image/Tools/importO.png</file>
+        <file>Image/Tools/promptG.png</file>
+        <file>Image/Tools/promptR.png</file>
+        <file>Image/Tools/searchIconB.png</file>
+        <file>Image/Tools/searchIconG.png</file>
+    </qresource>
+</RCC>

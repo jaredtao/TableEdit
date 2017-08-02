@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Qml/Main.qml</file>
+        <file>Qml/Component/FHoverButton.qml</file>
+        <file>Qml/Component/FJsonListModel.qml</file>
+        <file>Qml/Component/FSpinBox.qml</file>
+        <file>Qml/Component/FSpinButton.qml</file>
+        <file>Qml/Component/FTextButton.qml</file>
+        <file>Qml/Component/JsonPath.js</file>
+        <file>Qml/Component/FToolTip.qml</file>
+        <file>Qml/FTable.qml</file>
+        <file>Qml/Component/FPopDialog.qml</file>
+        <file>Qml/Component/FColorButton.qml</file>
+    </qresource>
+</RCC>

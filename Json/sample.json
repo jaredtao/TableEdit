@@ -1,0 +1,187 @@
+{
+    "commands": [
+        {
+            "name": "applicationState" ,"bits": 8, "min": 0,
+            "description": "0: 显示未初始化，例如开机视频播放,1: 开机动画进行中,2: 关机动画进行中,3: 自检中, \
+4: 休眠界面显示中,5: 休眠界面显示动画进行中,6: 休眠界面消失动画进行中,7: 正常状态画面显示中"
+        }
+    ],
+    "heartBeatInterval": 3000,
+    "signals": [
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "MCU临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "mcuVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "MCU中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "mcuVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "MCU主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "mcuVersionMax",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "转速",
+            "max": 8000,
+            "min": 0,
+            "name": "rpm",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "车速,0-240",
+            "max": 240,
+            "name": "speed",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0: IGN OFF\\n1: IGN ON",
+            "max": 1,
+            "min": 0,
+            "name": "igOn",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "语言 0：中文\\n1：英文",
+            "max": 1,
+            "min": 0,
+            "name": "language",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0: disenable  1:enable",
+            "max": 1,
+            "min": 0,
+            "name": "projectModeEnabled",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 32,
+            "coefficient": 1,
+            "description": "时间 存储自1970年1月1日0时0分0秒到现在的秒数",
+            "invalid": "0x0",
+            "max": 4294967295,
+            "min": 0,
+            "name": "dateTime",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "主题 0：主题1\\n1：主题2\\n2：主题3\\n4：主题4",
+            "max": 4,
+            "min": 0,
+            "name": "theme",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "确认按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "enterKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "返回按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "backKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "向上按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "prevKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "向下按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "nextKey",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "硬件临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "hwVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "硬件中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "hwVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "硬件主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "hwVersionMax",
+            "offset": 0
+        }
+    ],
+    "specialSignals": [
+    ],
+    "version": "0.0.1"
+}

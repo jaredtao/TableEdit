@@ -1,0 +1,1126 @@
+{
+    "commands": [
+        {
+            "name": "applicationState" ,"bits": 8, "min": 0,
+            "description": "0: 显示未初始化，例如开机视频播放,1: 开机动画进行中,2: 关机动画进行中,3: 自检中, \
+4: 休眠界面显示中,5: 休眠界面显示动画进行中,6: 休眠界面消失动画进行中,7: 正常状态画面显示中"
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "命令请求,1：请求 0：不请求,开机后，当MCU接收到此命令后，开始向CORE发送信号",
+            "max": 1,
+            "min": 0,
+            "name": "commandReq",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "关屏请求,1：关屏 0：不关屏",
+            "max": 1,
+            "min": 0,
+            "name": "closeReq",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "小计里程清零,1：清零      0：不清零",
+            "max": 1,
+            "min": 0,
+            "name": "tripClean",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "平均车速清零,1：清零      0：不清零",
+            "max": 1,
+            "min": 0,
+            "name": "avgSpeedClean",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "平均油耗清零,1：清零      0：不清零",
+            "max": 1,
+            "min": 0,
+            "name": "avgFuelClean",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "min": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "报警界面声音同步,用于报警界面与声音同步，每个数值表示不同的报警界面，待定",
+            "max": 255,
+            "min": 0,
+            "name": "alarmInterface",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "min": 0,
+            "name": "interfaceSoundSync"
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "CORE系统烧写完成,USB转OTG烧写核心板系统完毕信号\n00: 无操作\n01: 完成\n10: 失败\n11: 保留",
+            "max": 1,
+            "min": 0,
+            "name": "coreSysBurned",
+            "offset": 0
+        },
+        {
+            "bits": 6,
+            "min": 0
+        },
+        {
+            "bits": 32,
+            "coefficient": 1,
+            "description": "日期时间设置,存储自1970年1月1日0时0分0秒到现在的秒数:修改  0:不修改",
+            "min": 0,
+            "name": "secondsSet",
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "min": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "当前主题,0x0000:主题1（默认主题，不设置）\n0x0001~0x1111:主题2至15",
+            "max": 15,
+            "min": 0,
+            "name": "setCurrentTheme",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "工程模式,0x0000:普通模式（默认模式，不设置）\n0x0001:演示模式\n0x0010:工程模式\n0x0011：生产模式\n0x0100~0x1111:备用模式\n",
+            "max": 15,
+            "min": 0,
+            "name": "setProjectMode",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "当前界面编号,0：常显界面\n1：导航界面\n2：夜视界面\n3：行车记录仪界面\n4-15： 保留",
+            "max": 15,
+            "min": 0,
+            "name": "currentInterfaceNum"
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "限速报警设置,0：OFF 1:40km/h 2:50km/h......13:160km/h",
+            "max": 15,
+            "min": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "开机动画完成标志,0：开机动画未完成\n1：开机动画完成",
+            "max": 1,
+            "min": 0,
+            "name": "startAnimationEnd"
+        },
+        {
+            "bits": 7,
+            "min": 0
+        },
+        {
+            "bits": 16,
+            "min": 0
+        },
+        {
+            "bits": 32,
+            "min": 0,
+            "name": "toMCUHeartbeat"
+        }
+    ],
+    "heartBeatInterval": 3000,
+    "signals": [
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "转数",
+            "max": 7000,
+            "min": 0,
+            "name": "rpm",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "车速,0-240",
+            "max": 240,
+            "min": 0,
+            "name": "speed",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "水温表",
+            "max": 130,
+            "min": 50,
+            "name": "waterTemp",
+            "offset": 0
+        },
+        {
+            "bits": 32,
+            "coefficient": 1,
+            "description": "时间 存储自1970年1月1日0时0分0秒到现在的秒数",
+            "invalid": "0x0",
+            "max": 4294967295,
+            "min": 0,
+            "name": "dateTime",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": " 按键1,0: 未按下\n1: 按下",
+            "max": 1,
+            "min": 0,
+            "name": "enterKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "按键2,0: 未按下\n1: 按下",
+            "max": 1,
+            "min": 0,
+            "name": "backKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "按键3",
+            "max": 1,
+            "min": 0,
+            "name": "nextKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": " 按键4",
+            "max": 1,
+            "min": 0,
+            "name": "prevKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0:disEnabled 1:enabled",
+            "max": 1,
+            "min": 0,
+            "name": "projectModeEnabled",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "min": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "点火状态,0:OFF\n1:ON",
+            "max": 1,
+            "min": 0,
+            "name": "igOn",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "档位信息,0x00 不显示\n0x01 手动1档\n0x02 手动2档\n0x03 手动3档\n0x04 手动4档\n0x05 手动5档\n0x06 手动6档\n0x07 手动7档\n0x08 自动P档\n0x09 自动D档\n0x0A 自动N档\n0x0B 自动R档\n0x0C-0x0E 保留\n0x0F:故障",
+            "max": 8,
+            "min": 0,
+            "name": "gear",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "min": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "钥匙状态,OFF =0，ACC = 1，ON = 2，START = 3",
+            "max": 3,
+            "min": 0,
+            "name": "keyStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前左门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "lfDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前右门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "rfDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后左门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "lrDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后右门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "rrDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "引擎盖状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "hoodDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "行李箱状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "trunkDoor",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "min": 0
+        },
+        {
+            "bits": 1,
+            "description": "左转向灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "turnLeft"
+        },
+        {
+            "bits": 1,
+            "description": "右转向灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "turnRight"
+        },
+        {
+            "bits": 1,
+            "description": "前雾灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "frontFogLight"
+        },
+        {
+            "bits": 1,
+            "description": "后雾灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "rearFogLight"
+        },
+        {
+            "bits": 1,
+            "description": "主驾驶安全带未系报警灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "seatBeltMas"
+        },
+        {
+            "bits": 1,
+            "description": "副驾驶安全带未系报警灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "seatBeltCop"
+        },
+        {
+            "bits": 1,
+            "description": "远光灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "highBeam"
+        },
+        {
+            "bits": 1,
+            "description": "近光灯,0x00:OFF\n0x01:ON",
+            "min": 0,
+            "name": "lowBeam"
+        },
+        {
+            "bits": 8,
+            "min": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 1,
+            "description": "总里程,最大有效值是999999,非法值0xFFFFFF",
+            "max": 999999,
+            "min": 0,
+            "name": "odo",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "平均车速,0-240km/h",
+            "max": 240,
+            "min": 0,
+            "name": "avgSpeed",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "当前主题,0x0000:主题1\n0x0001~0x1111:主题2至15",
+            "max": 15,
+            "min": 0,
+            "name": "theme",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "工程模式,0x0000:普通模式\n0x0001:演示模式\n0x0002:工程模式\n0x0003：生产模式\n0x0004~0x1111:备用模式\n",
+            "max": 15,
+            "min": 0,
+            "name": "projectMode",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "续航里程,0-999km",
+            "max": 999,
+            "min": 0,
+            "name": "remainMileage",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "max": 50000,
+            "min": 0,
+            "name": "maintenanceMileage",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "车外温度,0xFFFF非法温度，显示为\"--.-\"\n0xFFFE不显示",
+            "max": 160,
+            "min": -40,
+            "name": "outTemp",
+            "offset": -40
+        },
+        {
+            "bits": 24,
+            "coefficient": 0.1,
+            "description": "小计里程1,最大有效值为999.9,非法值0xFFFF",
+            "max": 999.9,
+            "min": 0,
+            "name": "trip1",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "燃油量,0%-100%",
+            "max": 100,
+            "min": 0,
+            "name": "fuel",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "平均油耗,0xFFFF，表示无效值。\n0.0-30.0L/100km,单位L/100km.\n最高位为0时，代表L/H.\n最高位为1时，代表L/100km\n",
+            "max": 30,
+            "min": 0,
+            "name": "avgFuel",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "瞬时油耗,0.0-45.0L/100km,\n最高位为0时，代表L/H.\n最高位为1时，代表L/100km\n",
+            "max": 45,
+            "min": 0,
+            "name": "instantFuel",
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 0.1,
+            "description": "小计里程2,最大有效值为999.9,非法值0xFFFF",
+            "max": 999.9,
+            "min": 0,
+            "name": "trip2",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "电量SOC,0%-100%（燃油表此项默认无效值）",
+            "max": 100,
+            "min": 0,
+            "name": "soc",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "动力电池电流,燃油表为无效值",
+            "max": 500,
+            "min": 0,
+            "name": "batteryCurrent",
+            "offset": -500
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "动力电池电压,燃油表为无效值",
+            "max": 600,
+            "min": 0,
+            "name": "batteryVoltage",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "平均电能消耗,兼容电动车与混动车",
+            "max": 2000,
+            "min": 0,
+            "name": "avgPowerConsum",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "MCU临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "mcuVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "MCU中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "mcuVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "MCU主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "mcuVersionMax",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "硬件临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "hwVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "硬件中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "hwVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "硬件主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "hwVersionMax",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "min": 0,
+            "name": "language"
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "前左胎压,胎压值 = value * 比例系数 + 偏移量",
+            "max": 255,
+            "min": 0,
+            "name": "lfTire",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "前右胎压,胎压值 = value * 比例系数 + 偏移量 ",
+            "max": 255,
+            "min": 0,
+            "name": "rfTire",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "后左胎压,胎压值 = value * 比例系数 + 偏移量 ",
+            "max": 255,
+            "min": 0,
+            "name": "lbTire",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "后右胎压,胎压值 = value * 比例系数 + 偏移量 ",
+            "max": 255,
+            "min": 0,
+            "name": "rbTire",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "前左胎压报警信息, $0 : No warning.  \n$1 : High pressure warning. （同时显示的胎压数值变红）       \n$2 : Low pressure warning. （同时显示的胎压数值变红） \n$3 : Quik leakage.        \n$4 : Lost Sensor    \n$5 : Sensor battery low          \n$6 : High Temper（同时显示的胎温数值变红） \n$7 : Reserved",
+            "min": 0,
+            "name": "lfTireWar",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "前右胎压报警信息",
+            "min": 0,
+            "name": "rfTireWar",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "胎压模式,0：直接测量模式\n1：间接测量模式",
+            "min": 0,
+            "name": "tireMode",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "信号灯同步,0：无同步 1：同步",
+            "min": 0,
+            "name": "lightSync",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "后左胎压报警信息,$0 : No warning.  \n$1 : High pressure warning. （同时显示的胎压数值变红）       \n$2 : Low pressure warning. （同时显示的胎压数值变红）\n$3 : Quik leakage.        \n$4 : Lost Sensor    \n$5 : Sensor battery low          \n$6 : High Temper （同时显示的胎温数值变红）\n$7 : Reserved",
+            "min": 0,
+            "name": "lbTireWar",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "后右胎压报警信息",
+            "min": 0,
+            "name": "rbTireWar",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "min": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "前左胎压温度,Unit:℃",
+            "min": 0,
+            "name": "lfTemp",
+            "offset": -50
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": " 前右胎压温度,Unit:℃",
+            "min": 0,
+            "name": "rfTemp",
+            "offset": -50
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "后左胎压温度,Unit:℃",
+            "min": 0,
+            "name": "lbTemp",
+            "offset": -50
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "后右胎压温度,Unit:℃",
+            "min": 0,
+            "name": "rbTemp",
+            "offset": -50
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前左胎压温度报警,$0 : No temperature warning.$1 : Temperature warning",
+            "min": 0,
+            "name": "lfTempWar",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前右胎压温度报警,$0 : No temperature warning.$1 : Temperature warning",
+            "min": 0,
+            "name": "rfTempWar",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后左胎压温度报警,$0 : No temperature warning.$1 : Temperature warning",
+            "min": 0,
+            "name": "lbTempWar",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后右胎压温度报警,$0 : No temperature warning.$1 : Temperature warning",
+            "min": 0,
+            "name": "rbTempWar",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "系统错误报警,$0 : No any error.$1 : System error.",
+            "min": 0,
+            "name": "sysWar",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "间接模式状态,$1: 故障模式\n$2: 漏气\n$3: 重置\n$4: 正常",
+            "min": 0,
+            "name": "indirectMode",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "前左雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "lfRadar",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "前左中雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "lfMRadar",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "倒车雷达系统状态,0x00:不显示雷达\n0x01:自检\n0x02:雷达激活\n0x03:无效",
+            "min": 0,
+            "name": "radarSysState",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "前右中雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "rfMRadar",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "前右雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "rfRadar",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "min": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "后左雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "lbRadar",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "后左中雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "lbMRadar",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "min": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "后右中雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "rbMRadar",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "后右雷达距离,0x00: 不显示\n0x01: 1格闪烁\n0x02: 2格显示，最外一格闪烁\n0x03: 3格显示，最外一格闪烁\n0x04：4格显示，最外一格闪烁",
+            "min": 0,
+            "name": "rbRadar",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "min": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "小灯,0:off   1:on ",
+            "min": 0,
+            "name": "smallLights",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "EPB故障,0:off   1:on ",
+            "min": 0,
+            "name": "epbFailure",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "制动报警灯,0:off   1:on ",
+            "min": 0,
+            "name": "handBrakeWarningLights",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "遥控钥匙在外指示,0:off   1:on ",
+            "min": 0,
+            "name": "kyeOut",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "EPS故障,0:off   1:on",
+            "min": 0,
+            "name": "epsFailure",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "ABS故障,0:off   1:on",
+            "min": 0,
+            "name": "absFailure",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "功率降低指示,0:off   1:on   （列表有定义，无图标）",
+            "min": 0,
+            "name": "powerReductionIndication",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "整车系统故障,0:off   1:on",
+            "min": 0,
+            "name": "systemFailure",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "ESP 故障,0:off   1:on",
+            "min": 0,
+            "name": "espFailure",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "ESP  OFF,0:off   1:on",
+            "min": 0,
+            "name": "espOff",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "ESP ON,0:off   1:on",
+            "min": 0,
+            "name": "esp"
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "安全气囊故障,0:off   1:on ",
+            "min": 0,
+            "name": "airbagFailure",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "ACC巡航开关指示,0:off   1:on",
+            "min": 0,
+            "name": "accSwitch",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 0,
+            "min": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电子转向柱锁解锁失败指示,0:off   1:on",
+            "min": 0,
+            "name": "esclFailure"
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "12V电池充电报警,0:off   1:on",
+            "min": 0,
+            "name": "batteryChargingWarning",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "description": "12V蓄电池馈电报警,0:off   1:on    （有定义无图标）",
+            "min": 0,
+            "name": "batteryFeedWarning"
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "动力电池充电状态,0：0ff  1：on",
+            "min": 0,
+            "name": "batteryChargeStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "充电线连接,0：0ff  1：on",
+            "min": 0,
+            "name": "chargLineConnection",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "动力电池馈电,0：0ff  1：on",
+            "min": 0,
+            "name": "batteryFeed",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "动力电池故障,0：0ff  1：on",
+            "min": 0,
+            "name": "batteryFailure",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "动力电池切断,0：0ff  1：on",
+            "min": 0,
+            "name": "powerBatteryCutOff",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电池电量低报警,0：SOC颜色正常 1：SOC颜色变红 （MCU做蜂鸣报警）",
+            "min": 0,
+            "name": "socLow",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "description": "电机及控制器过热,0：0ff  1：on",
+            "min": 0,
+            "name": "motorControllerOverheat"
+        },
+        {
+            "bits": 1,
+            "description": "电机驱动系统故障,0：0ff  1：on",
+            "min": 0,
+            "name": "motorDriveSystemFailure"
+        },
+        {
+            "bits": 1,
+            "description": "TCU故障指示,0：0ff  1：on",
+            "min": 0,
+            "name": "tcuFailure"
+        },
+        {
+            "bits": 1,
+            "description": "绝缘报警,0：0ff  1：on",
+            "min": 0,
+            "name": "insulationWarning"
+        },
+        {
+            "bits": 1,
+            "min": 0
+        },
+        {
+            "bits": 1,
+            "description": "钥匙电量低警告指示,0：0ff  1：on       ",
+            "min": 0,
+            "name": "keyLowWarning"
+        },
+        {
+            "bits": 1,
+            "description": "制动液液位传感器,0：0ff  1：on",
+            "min": 0,
+            "name": "brakeFailure"
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "洗涤液液位传感器,0：0ff  1：on",
+            "min": 0,
+            "name": "detergentLiquidLlevel"
+        },
+        {
+            "bits": 3,
+            "description": "模式选择,0：SPORT模式\n1：ECO模式\n3-7：其他模式",
+            "min": 0,
+            "name": "modeSwitch"
+        },
+        {
+            "bits": 1,
+            "description": "回馈开关,0：0ff  1：on       （有定义无图标）",
+            "min": 0,
+            "name": "feedSwitch"
+        },
+        {
+            "bits": 2,
+            "min": 0,
+            "name": "feedStrength"
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "运行准备就绪,0:off   1:on ",
+            "max": 1,
+            "min": 0,
+            "name": "ready",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "min": 0
+        },
+        {
+            "bits": 2,
+            "description": "自检同步信号,0：不自检\n1：开始自检\n2：正在自检ing\n3：自检完成\n",
+            "min": 0,
+            "name": "selfCheckSynchronize"
+        },
+        {
+            "bits": 6,
+            "min": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "文字报警,0：不显示报警字符串\n1：请踩刹车启动\n2：IMMO认证失败\n3：启动按钮有故障\n4：方向盘锁定系统上锁失败",
+            "max": 255,
+            "min": 0,
+            "name": "warningTexts",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "文字提示,0：不显示字符串\n1：记录仪无存储卡\n2：记录仪存储卡无效\n3：记录仪锁档文件满\n4：USB连接中…",
+            "max": 255,
+            "min": 0,
+            "name": "tipsTexts",
+            "offset": 0
+        }
+    ],
+    "specialSignals": [
+    ],
+    "version": "0.0.1"
+}

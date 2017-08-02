@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Json/electricCar.json</file>
+        <file>Json/fuelCar.json</file>
+        <file>Json/mixingCar.json</file>
+        <file>Json/sample.json</file>
+    </qresource>
+</RCC>

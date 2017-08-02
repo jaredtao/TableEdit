@@ -1,0 +1,1278 @@
+{
+    "commands": [
+        {
+            "name": "applicationState" ,"bits": 8, "min": 0,
+            "description": "0: 显示未初始化，例如开机视频播放,1: 开机动画进行中,2: 关机动画进行中,3: 自检中, \
+4: 休眠界面显示中,5: 休眠界面显示动画进行中,6: 休眠界面消失动画进行中,7: 正常状态画面显示中"
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": " 0：不请求,开机后，当MCU接收到此命令后，开始向CORE发送信号 1：请求",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "commandReq",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0：不关屏 1：ARM请求MCU关闭屏幕 ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "closeLCDReq",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "小计里程清零 0：不清零 1：清零      ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "tripClean",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "平均车速清零 0：不清零 1：清零      ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "avgSpeedClean",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0：不蜂鸣，用于量产核心板程序烧写成功 1：蜂鸣4s  ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "coreSysBurned",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0:进入正常模式 1:进入工程模式",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "setPrjMode",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 32,
+            "coefficient": 1,
+            "description": "存储自1970年1月1日0时0分0秒到现在的秒数:修改  0:不修改",
+            "invalid": "0x0",
+            "max": -1,
+            "min": -1,
+            "name": "setseconds",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "0：中文 1：英文",
+            "invalid": "0xf",
+            "max": 1,
+            "min": 0,
+            "name": "languageSet",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "0：亮度1级  1：亮度2级 2：亮度3级  3：亮度4级 ",
+            "invalid": "0xf",
+            "max": 3,
+            "min": 0,
+            "name": "setBacklightLevel",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "0：主题1 1：主题2 2：主题3 3：主题4",
+            "invalid": "0xff",
+            "max": 3,
+            "min": 0,
+            "name": "themeSet",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0:未做保养 1:已做保养",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "maintenanceClean",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0：开机动画未结束 1：开机动画结束",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "animaFinished",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0:不进行USB升级1：进行USB升级",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "usbUpdate",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0：未检测通过 1：通过检测",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "usbDiskCheck",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "HMI 临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "qtVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "HMI交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "qtVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "HMI主版本 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "qtVersionMax",
+            "offset": 0
+        }
+    ],
+    "heartBeatInterval": 2000,
+    "signals": [
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "MCU临时版本\n",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "mcuVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "MCU中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "mcuVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "MCU主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "mcuVersionMax",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "暂留 转速 \n红色区域：5800-8000",
+            "invalid": "0x0",
+            "max": 8000,
+            "min": 0,
+            "name": "rpm",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "车速,0-240",
+            "max": 240,
+            "name": "speed",
+            "offset": 0
+        },
+        {
+            "bits": 32,
+            "coefficient": 1,
+            "description": "时间 存储自1970年1月1日0时0分0秒到现在的秒数",
+            "invalid": "0x0",
+            "max": 4294967295,
+            "min": 0,
+            "name": "dateTime",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "车速 单位：km/h",
+            "invalid": "0xff",
+            "max": 140,
+            "min": 0,
+            "name": "carSpeed",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "确认按键 0: default\n1: press down ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "enterKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "返回按键 0: default\n1: press down ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "backKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "向上按键 0: default\n1: press down ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "prevKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "向下按键 0: default\n1: press down ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "nextKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0:disEnabled 1:enabled",
+            "max": 1,
+            "min": 0,
+            "name": "projectModeEnabled",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0: IGN OFF\n1: IGN ON",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "igOn",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "档位 0: P档   \n1-8: M1-M8档\n9: P档 闪烁\n10: R档 \n11: N档\n12: D档\n13: S档(保留)\n14: 显示'F' 表示档位错误",
+            "invalid": "0x0",
+            "max": 14,
+            "min": 0,
+            "name": "gear",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "ECO模式  0：不显示 1：ECO模式 2：暂留 3：暂留",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "EcoMode",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "钥匙位置 OFF = 0，ACC = 1，ON = 2，START = 3",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "keyStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "左前门状态 0x00:close\n0x01:open",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "lfDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "右前门状态 0x00:close\n0x01:open",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "rfDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "左后门状态 暂留\n0x00:close\n0x01:open",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "lrDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "右后门状态 暂留\n0x00:close\n0x01:open",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "rrDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "引擎盖状态 暂留\n0x00:close\n0x01:open",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "hoodDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "行李箱状态 0x00:close\n0x01:open",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "trunkDoor",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 1,
+            "description": "总里程 单位：Km",
+            "invalid": "0x0",
+            "max": 999999,
+            "min": 0,
+            "name": "odo",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "平均车速 单位：km/h",
+            "invalid": "0xff",
+            "max": 140,
+            "min": 0,
+            "name": "avgCarSpeed",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "续航里程 单位 Km",
+            "invalid": "0x0",
+            "max": 999,
+            "min": 0,
+            "name": "remainMileage",
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 0.1,
+            "description": "小计里程 单位 Km",
+            "invalid": "0x0",
+            "max": 9999,
+            "min": 0,
+            "name": "trip1",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 255,
+            "min": 0,
+            "name": "fuel",
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 16777215,
+            "min": 0,
+            "name": "trip2",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "0%-100%",
+            "invalid": "0x0",
+            "max": 100,
+            "min": 0,
+            "name": "socPercent",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "保养里程 单位：Km",
+            "invalid": "0x0",
+            "max": 5000,
+            "min": 0,
+            "name": "maintenanceMileage",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.5,
+            "description": "车外温度\n单位:℃",
+            "invalid": "0x0",
+            "max": 65535,
+            "min": -55,
+            "name": "outCarTemp",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0,
+            "description": "暂留 ",
+            "invalid": "0x0",
+            "max": 65535,
+            "min": 0,
+            "name": "avgFuel",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 65535,
+            "min": 0,
+            "name": "instantFuel",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "电流 单位：A",
+            "invalid": "0x0",
+            "max": 1000,
+            "min": -1000,
+            "name": "powerBatCurrent",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "电压 单位：V",
+            "invalid": "0x0",
+            "max": 500,
+            "min": 0,
+            "name": "powerBatVolt",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "硬件临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "hwVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "硬件中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "hwVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "硬件主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "hwVersionMax",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前雾灯 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "frontFogStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后雾灯 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "rearFogStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "左转灯 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "turnLeftStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "右转灯 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "turnRightStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "高光灯 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "highBeamStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "Ready灯 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "readyStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "主安全带 0: off  1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "mainBeltSts",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "辅安全带 0: off  1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "secondBeltSts",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "EPS故障 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "EPSFault",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "EBD故障 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "EBDFault",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "ABS故障 0:off   1:on  ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "ABSFault",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "日间行车灯 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "dayDriveStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "位置灯 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "positionLight",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "近光灯 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "nearReachStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电机系统故障 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "MotorSysErr",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "整车保养提示 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "vehicleMaintain",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "安全气囊故障 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "airBagErrStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电机温度高指示 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "motorTempHigh",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "绝缘电阻低 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "InsResLowAlarm",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "充电线连接指示 0:off   1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "chargeWireCNN",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 0,
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电池包加热状态 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "BattHeatingSts ",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电池电量低指示 0:off   1:on ",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "pwrBattLow",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "电池充电状态 0：灭\n1：正在充电，黄色指示灯\n2：充电完成，绿色指示灯",
+            "invalid": "0x0",
+            "max": 2,
+            "min": 0,
+            "name": "pwrBattChargeSts",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "PEPS文字指示 0x0: 无提示\n0x1: 转向锁解闭锁失败\n0x2: 智能钥匙系统故障\n0x3: 未检测到钥匙\n0x4: 钥匙电池电量低\n0x5: 请把钥匙靠近启动按钮\n0x6: 请切换到P/N档\n0x7:请踩制动并按启动按钮启动车辆\n0x8:长按启动按钮5s启动车辆",
+            "invalid": "0x0",
+            "max": 8,
+            "min": 0,
+            "name": "PEPSSts",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "亮度等级 0：亮度1级  \n1：亮度2级 \n2：亮度3级  \n3：亮度4级 ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "backlightGrade",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "语言 0：中文\n1：英文",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "language",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "电机温度 单位：℃",
+            "invalid": "0x0",
+            "max": 254,
+            "min": 0,
+            "name": "motorTemp",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "左前胎压 胎压单位Kpa，其他为无效值",
+            "invalid": "0x0",
+            "max": 4094,
+            "min": 0,
+            "name": "lfTirePressure",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "右前胎压 胎压单位Kpa，其他为无效值",
+            "invalid": "0x0",
+            "max": 4094,
+            "min": 0,
+            "name": "rfTirePressure",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "左后胎压 胎压单位Kpa，其他为无效值",
+            "invalid": "0x0",
+            "max": 4094,
+            "min": 0,
+            "name": "lrTirePressure",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "右后胎压 胎压单位Kpa，其他为无效值",
+            "invalid": "0x0",
+            "max": 4094,
+            "min": 0,
+            "name": "rrTirePressure",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "左前胎温 胎温单位℃ ，其他为无效值",
+            "invalid": "0x0",
+            "max": 260,
+            "min": -40,
+            "name": "lfTireTemp",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "右前胎温 胎温单位℃ ，其他为无效值",
+            "invalid": "0x0",
+            "max": 260,
+            "min": -40,
+            "name": "rfTireTemp",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "左后胎温单位℃ ，其他为无效值",
+            "invalid": "0x0",
+            "max": 260,
+            "min": -40,
+            "name": "lrTireTemp",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "右后胎温单位℃ ，其他为无效值",
+            "invalid": "0x0",
+            "max": 260,
+            "min": -40,
+            "name": "rrTireTemp",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "左前轮胎报警 0x0: No warning.  \n0x1: over pressure warning.        \n0x2: under pressure warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "lfTirePressureWarn",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "右前轮胎报警 0x0: No warning.  \n0x1: over pressure warning.        \n0x2: under pressure warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "rfTirePressureWarn",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "左后轮胎报警 0x0: No warning.  \n0x1: over pressure warning.        \n0x2: under pressure warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "lrTirePressureWarn",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "右后轮胎报警 0x0: No warning.  \n0x1: over pressure warning.        \n0x2: under pressure warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "rrTirePressureWarn",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "左前轮胎温度报警 0x0: No warning.  \n0x1: over Temperature warning.        \n0x2: under Temperature warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "lfTireTempWarn",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "右前轮胎温度报警 0x0: No warning.  \n0x1: over Temperature warning.        \n0x2: under Temperature warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "rfTireTempWarn",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "左后轮胎温度报警 0x0: No warning.  \n0x1: over Temperature warning.        \n0x2: under Temperature warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "lrTireTempWarn",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "右后轮胎温度报警 0x0: No warning.  \n0x1: over Temperature warning.        \n0x2: under Temperature warning. \n0x3: Reserved. ",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "rrTireTempWarn",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "主题 0：主题1\n1：主题2\n2：主题3\n4：主题4",
+            "invalid": "0x0",
+            "max": 4,
+            "min": 0,
+            "name": "theme",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "模式设置 0x0:普通模式\n0x1:演示模式\n0x2:工程模式\n0x3：生产模式\n",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "projectMode",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "定速巡航指示 0x0:巡航关闭\n0x1:巡航激活 闪烁\n0x2:巡航工作 常亮",
+            "invalid": "0x0",
+            "max": 2,
+            "min": 0,
+            "name": "ccsControlState",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "龟速灯指示 0:off\n1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "tortoiseSts",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "PEPS指示灯状态 0:off 1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "PEPSlampSts",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "轮胎界面配置 0:界面不能显示胎压界面\n1:界面可以显示胎压界面",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "CFGtyreUIshow",
+            "offset": 0
+        },
+        {
+            "bits": 7,
+            "coefficient": 0,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "整车系统故障 0:不报警\n1：2级报警 灯常亮\n2：1级报警 灯闪烁\n3：3级报警 灯常亮+蜂鸣",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "VehicleFaultLvl",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "动力电池故障 0:不报警\n1：2级报警 灯常亮\n2：1级报警 灯闪烁\n3：3级报警 灯常亮+蜂鸣",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "pwrBattFaultLvl",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "EPB故障 0:   不报警\n1： 灯常亮 \n2： 灯闪烁\n3： 保留",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "epbParkErrStatus",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "EPB指示 0: off\n1: EPB常亮\n2：EPB闪烁\n3：保留",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "epbParkStatus",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "定速巡航车速 单位:Km/h",
+            "invalid": "0x0",
+            "max": 140,
+            "min": 0,
+            "name": "CruiseSpdSet ",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "剩余冲电时间 单位：min",
+            "invalid": "0x0",
+            "max": 65534,
+            "min": 0,
+            "name": "RemnChgTime ",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "0:不自检\n1:开始自检\n2:正在自检\n3:自检完成",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "selfCheckSts",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "轮胎故障指示灯 0:off 1:on",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "TPMSsysWarning",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "暂留",
+            "invalid": "0x0",
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "左前轮胎快速漏气 0：不报警 1：快速漏气 2：慢速漏气 3：保留",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "lfTireLeakSts",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "右前轮胎快速漏气 0：不报警 1：快速漏气 2：慢速漏气 3：保留",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "rfTireLeakSts",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "左后轮胎快速漏气 0：不报警 1：快速漏气 2：慢速漏气 3：保留",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "lrTireLeakSts",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "右后轮胎快速漏气 0：不报警 1：快速漏气 2：慢速漏气 3：保留",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "rrTireLeakSts",
+            "offset": 0
+        }
+    ],
+    "specialSignals": [
+    ],
+    "version": "0.0.1"
+}

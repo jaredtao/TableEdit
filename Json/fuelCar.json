@@ -1,0 +1,1236 @@
+{
+    "commands": [
+        {
+            "name": "applicationState" ,"bits": 8, "min": 0,
+            "description": "0: 显示未初始化，例如开机视频播放,1: 开机动画进行中,2: 关机动画进行中,3: 自检中, \
+4: 休眠界面显示中,5: 休眠界面显示动画进行中,6: 休眠界面消失动画进行中,7: 正常状态画面显示中"
+        },
+        {
+            "bits": 1,
+            "description": "打开请求",
+            "max": 1,
+            "min": 0,
+            "name": "openRequest"
+        },
+        {
+            "bits": 1,
+            "description": "关闭请求",
+            "max": 1,
+            "min": 0,
+            "name": "closeRequest"
+        },
+        {
+            "bits": 1,
+            "description": "清小计里程",
+            "max": 1,
+            "min": 0,
+            "name": "subtotalReset"
+        },
+        {
+            "bits": 1,
+            "description": "清平均车速",
+            "max": 1,
+            "min": 0,
+            "name": "speedAverageReset"
+        },
+        {
+            "bits": 1,
+            "description": "清平均油耗",
+            "max": 1,
+            "min": 0,
+            "name": "fuelAverageReset"
+        },
+        {
+            "bits": 1,
+            "max": 0,
+            "min": 0
+        },
+        {
+            "bits": 1,
+            "description": "烧录结束",
+            "max": 1,
+            "min": 0,
+            "name": "burnFinish"
+        },
+        {
+            "bits": 17,
+            "max": 0,
+            "min": 0
+        },
+        {
+            "bits": 8,
+            "description": "Fusion状态",
+            "max": 7,
+            "min": 0,
+            "name": "coreStatus"
+        },
+        {
+            "bits": 32,
+            "description": "时间设置",
+            "max": 4294967295,
+            "min": 0,
+            "name": "utc"
+        },
+        {
+            "bits": 1,
+            "description": "清保养里程",
+            "max": 1,
+            "min": 0,
+            "name": "maintainReset"
+        },
+        {
+            "bits": 1,
+            "description": "开机画面结束",
+            "max": 1,
+            "min": 0,
+            "name": "openingFinish"
+        },
+        {
+            "bits": 1,
+            "description": "USB升级",
+            "max": 1,
+            "min": 0,
+            "name": "usbUpgrade"
+        },
+        {
+            "bits": 1,
+            "description": "USB反馈",
+            "max": 1,
+            "min": 0,
+            "name": "usbFeedback"
+        },
+        {
+            "bits": 2,
+            "description": "语言设置",
+            "max": 2,
+            "min": 0,
+            "name": "language"
+        },
+        {
+            "bits": 2,
+            "description": "时间模式设置",
+            "max": 2,
+            "min": 0,
+            "name": "timeMode"
+        },
+        {
+            "bits": 3,
+            "max": 0,
+            "min": 0
+        },
+        {
+            "bits": 2,
+            "description": "导航设置",
+            "max": 2,
+            "min": 0,
+            "name": "dvdConfig"
+        },
+        {
+            "bits": 3,
+            "description": "主题设置",
+            "max": 6,
+            "min": 0,
+            "name": "themeConfig"
+        }
+    ],
+    "heartBeatInterval": 3000,
+    "signals": [
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "MCU临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "mcuVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "MCU中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "mcuVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "MCU主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "mcuVersionMax",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "转速",
+            "invalid": "0xffff",
+            "max": 8000,
+            "min": 0,
+            "name": "rpm",
+            "offset": 0
+        },
+        {
+            "bits": 32,
+            "coefficient": 1,
+            "description": "时间",
+            "invalid": "0x0",
+            "max": 4294967295,
+            "min": 0,
+            "name": "dateTime",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "瞬时速度",
+            "invalid": "0xff",
+            "max": 220,
+            "min": 0,
+            "name": "speed",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "水温",
+            "invalid": "0xff",
+            "max": 254,
+            "min": 0,
+            "name": "waterTemperature",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "确认按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "enterKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "返回按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "backKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "向上按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "prevKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "向下按键 0: default\\n1: press down",
+            "max": 1,
+            "min": 0,
+            "name": "nextKey",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "0: disenabled 1:enabled",
+            "max": 1,
+            "min": 0,
+            "name": "projectModeEnabled",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 0,
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "点火",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "igOn",
+            "offset": 0
+        },
+        {
+            "bits": 4,
+            "coefficient": 1,
+            "description": "档位",
+            "invalid": "0xf",
+            "max": 14,
+            "min": 0,
+            "name": "gear",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "档位模式",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "gearMode",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "钥匙状态",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "key",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前左门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "lfDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前右门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "rfDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后左门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "lrDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后右门状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "rrDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "引擎盖状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "hoodDoor",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "行李箱状态,0x00:close\n0x01:open",
+            "max": 1,
+            "min": 0,
+            "name": "trunkDoor",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 0,
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 1,
+            "description": "总里程",
+            "invalid": "0xffffff",
+            "max": 999999,
+            "min": 0,
+            "name": "distanceTotal",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "平均速度",
+            "invalid": "0xff",
+            "max": 220,
+            "min": 0,
+            "name": "speedAverage",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "续航里程",
+            "invalid": "0xffff",
+            "max": 700,
+            "min": 0,
+            "name": "mileage",
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 1,
+            "description": "小计里程1",
+            "invalid": "0xffffff",
+            "max": 9999,
+            "min": 0,
+            "name": "distanceSubtotal1",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "油量",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "fuelQuantity",
+            "offset": 0
+        },
+        {
+            "bits": 24,
+            "coefficient": 1,
+            "description": "小计里程2",
+            "invalid": "0xffffff",
+            "max": 9999,
+            "min": 0,
+            "name": "distanceSubtotal2",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 1,
+            "description": "保养里程",
+            "invalid": "0xffff",
+            "max": 5000,
+            "min": 0,
+            "name": "distanceMaintain",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.5,
+            "description": "车外温度",
+            "invalid": "0xffff",
+            "max": 2045,
+            "min": 0,
+            "name": "temperatureOutside",
+            "offset": -40
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "平均油耗",
+            "invalid": "0xffff",
+            "max": 200,
+            "min": 0,
+            "name": "fuelAverage",
+            "offset": 0
+        },
+        {
+            "bits": 16,
+            "coefficient": 0.1,
+            "description": "瞬时油耗",
+            "invalid": "0xffff",
+            "max": 200,
+            "min": 0,
+            "name": "fuelInstant",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警前左",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningLF",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警前左中",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningLFC",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 0,
+            "max": 0,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警前右中",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningRFC",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警前右",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningRF",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "自适应巡航实际距离",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "accDistanceActual",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警后左",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningLR",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警后左中",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningLRC",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "自适应巡航PCW",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "accPcw",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警后右中\t",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningRRC",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "雷达报警后右",
+            "invalid": "0x7",
+            "max": 5,
+            "min": 0,
+            "name": "radarWarningRR",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "雷达报警状态",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "radarStatus",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "前雾灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "fogFront",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "后雾灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "fogRear",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "左转向灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "turningLeft",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "右转向灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "turningRight",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "大光灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "beamHigh",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "小光灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "beamLow",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电子制动力分配",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "ebd",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "紧急刹车灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "ep",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "气囊故障",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "airbagFault",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电子驻车制动系统故障",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "epbFault",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "日间行车灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "drl",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "防锁死刹车装置",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "abs",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "发动机电子稳定装置",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "epc",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电动助力转向系统",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "eps",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "发动排放机故障",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "mil",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "车身电子稳定系统关闭",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "espOff",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "保养信号灯",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "maintain",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "刹车油压力低",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "brakeOilLow",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "四驱",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "w4",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "发动机启停",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "startStop",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "胎压系统故障",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "tirePressureSystem",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "胎压配置",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "tireConfig",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "机油压力低",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "engineOilLow",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "车身电子稳定系统",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "esp",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "电子驻车制动系统",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "epb",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "位置灯",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "position",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "传动控制系统故障",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "tcuFault",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "水温故障",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "coolantTemperatureWarning",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "陡坡缓降",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "hdc",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "发动机防盗系统",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "immo",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "驾驶员安全带",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "beltDriver",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "副驾驶员安全带",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "beltPessenger",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "车道保持辅助系统故障",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "alsFault",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "雷达启动",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "radarActive",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "电子驻车系统",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "avh",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "室外温度单位",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "temperatureOutsideUnit",
+            "offset": 0
+        },
+        {
+            "bits": 1,
+            "coefficient": 1,
+            "description": "开启超速报警",
+            "invalid": "0x0",
+            "max": 1,
+            "min": 0,
+            "name": "overSpeedActive",
+            "offset": 0
+        },
+        {
+            "bits": 2,
+            "coefficient": 1,
+            "description": "换挡模式",
+            "invalid": "0x0",
+            "max": 3,
+            "min": 0,
+            "name": "gearSwitchMode",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "主题 0：主题1\\n1：主题2\\n2：主题3\\n4：主题4",
+            "max": 4,
+            "min": 0,
+            "name": "theme",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "语言 0：中文\\n1：英文",
+            "max": 1,
+            "min": 0,
+            "name": "language",
+            "offset": 0
+        },
+        {
+            "bits": 8,
+            "coefficient": 1,
+            "description": "硬件临时版本",
+            "invalid": "0xff",
+            "max": 100,
+            "min": 0,
+            "name": "hwVersionMin",
+            "offset": 0
+        },
+        {
+            "bits": 5,
+            "coefficient": 1,
+            "description": "硬件中版本号 交付版本，每次交付样机加一",
+            "invalid": "0x1f",
+            "max": 30,
+            "min": 0,
+            "name": "hwVersionMid",
+            "offset": 0
+        },
+        {
+            "bits": 3,
+            "coefficient": 1,
+            "description": "硬件主版本号 SOP版本号，量产加一",
+            "invalid": "0x7",
+            "max": 6,
+            "min": 0,
+            "name": "hwVersionMax",
+            "offset": 0
+        }
+    ],
+    "specialSignals": [
+        {
+            "name": "tirePressureLF",
+            "type": 1
+        },
+        {
+            "name": "tirePressureRF",
+            "type": 2
+        },
+        {
+            "name": "tirePressureLR",
+            "type": 3
+        },
+        {
+            "name": "tirePressureRR",
+            "type": 4
+        },
+        {
+            "name": "tirePressureWarningLF",
+            "type": 5
+        },
+        {
+            "name": "tirePressureWarningRF",
+            "type": 6
+        },
+        {
+            "name": "fuelLow",
+            "type": 7
+        },
+        {
+            "name": "outsideTemperatureStatus",
+            "type": 8
+        },
+        {
+            "name": "tirePressureWarningLR",
+            "type": 9
+        },
+        {
+            "name": "tirePressureWarningRR",
+            "type": 10
+        },
+        {
+            "name": "memset",
+            "type": 11
+        },
+        {
+            "name": "tireTemperatureLF",
+            "type": 12
+        },
+        {
+            "name": "tireTemperatureRF",
+            "type": 13
+        },
+        {
+            "name": "tireTemperatureLR",
+            "type": 14
+        },
+        {
+            "name": "tireTemperatureRR",
+            "type": 15
+        },
+        {
+            "name": "tireTemperatureWarningLF",
+            "type": 16
+        },
+        {
+            "name": "tireTemperatureWarningRF",
+            "type": 17
+        },
+        {
+            "name": "tireTemperatureWarningLR",
+            "type": 18
+        },
+        {
+            "name": "tireTemperatureWarningRR",
+            "type": 19
+        },
+        {
+            "name": "tireSystemWarning",
+            "type": 20
+        },
+        {
+            "name": "lcdDisplay",
+            "type": 21
+        },
+        {
+            "name": "drivingMode",
+            "type": 22
+        },
+        {
+            "name": "accText",
+            "type": 23
+        },
+        {
+            "name": "accAeb",
+            "type": 24
+        },
+        {
+            "name": "fatigue",
+            "type": 25
+        },
+        {
+            "name": "dvdActive",
+            "type": 26
+        },
+        {
+            "name": "laneDeparture",
+            "type": 27
+        },
+        {
+            "name": "cruiseControlStatus",
+            "type": 28
+        },
+        {
+            "name": "cruiseControlSpeed",
+            "type": 29
+        },
+        {
+            "name": "pepsStatus",
+            "type": 30
+        },
+        {
+            "name": "gearSwitchTarget",
+            "type": 31
+        },
+        {
+            "name": "usbUpgrade",
+            "type": 32
+        },
+        {
+            "name": "backlight",
+            "type": 33
+        },
+        {
+            "name": "dvdConfig",
+            "type": 34
+        },
+        {
+            "name": "theme",
+            "type": 35
+        },
+        {
+            "name": "language",
+            "type": 36
+        },
+        {
+            "name": "speedLimit",
+            "type": 37
+        },
+        {
+            "name": "hardwareVersion",
+            "type": 38
+        },
+        {
+            "name": "dvdClockToward",
+            "type": 39
+        },
+        {
+            "name": "dvdClockGuide",
+            "type": 40
+        },
+        {
+            "name": "dvdTurnDistance",
+            "type": 41
+        },
+        {
+            "name": "dvdDestinationDistance",
+            "type": 42
+        },
+        {
+            "name": "dvdGuideType",
+            "type": 43
+        },
+        {
+            "name": "dvdTurnType",
+            "type": 44
+        },
+        {
+            "name": "dvdMode",
+            "type": 45
+        },
+        {
+            "name": "usbTest",
+            "type": 46
+        },
+        {
+            "name": "timeMode",
+            "type": 47
+        },
+        {
+            "name": "accConfig",
+            "type": 48
+        },
+        {
+            "name": "accTakeOverRequest",
+            "type": 49
+        },
+        {
+            "name": "accFrontStatus",
+            "type": 50
+        },
+        {
+            "name": "accSignalStatus",
+            "type": 51
+        },
+        {
+            "name": "accFrontDistanceActual",
+            "type": 52
+        },
+        {
+            "name": "accTargetSpeed",
+            "type": 53
+        }
+    ],
+    "version": "0.0.1"
+}
