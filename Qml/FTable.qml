@@ -43,10 +43,10 @@ Item {
 
     //表格的数据
     property ListModel dataModel;
-    //用来标识是上行帧还是下行帧: "signals" / "commands" / "specialSignals"
+    //用来标识是状态帧还是下行帧: "signals" / "commands" / "specialSignals"
     property string tableType: ""
 
-    //下行帧需要用到上行帧的name
+    //下行帧需要用到状态帧的name
     property var signalNames: [""]
     // 固定名称
     property var fixedNames : [""]
@@ -55,6 +55,11 @@ Item {
 
     signal showInfo(string info);
     signal dataEdited()
+
+    //记录器，用来记录增删改操作。
+    OperationRecorder {
+        id: recorder
+    }
 
     //更新数据
     function updateDatas() {
@@ -117,7 +122,7 @@ Item {
         if (!data) return;
         var items = [];
         var item;
-        if (data.type === OperatorRecorder.Add) {
+        if (data.type === OperationRecorder.Add) {
             if (data.count <= 0) {
                 return;
             }
@@ -126,11 +131,11 @@ Item {
                 item = items[i];
                 dataModel.insert(data.index, item);
             }
-        } else if (data.type === OperatorRecorder.Clear) {
+        } else if (data.type === OperationRecorder.Clear) {
             tableView.clear(false);
-        } else if (data.type === OperatorRecorder.Delete) {
+        } else if (data.type === OperationRecorder.Delete) {
             tableView.removeRowsFromIndex(data.index, data.count, false);
-        } else if (data.type === OperatorRecorder.Modify) {
+        } else if (data.type === OperationRecorder.Modify) {
             if (data.row < 0 || data.row >= dataModel.count) return;
             dataModel.setProperty(data.row, data.role, data.dataNew);
         } else {
@@ -145,9 +150,9 @@ Item {
         if (!data) return;
         var items = [];
         var item;
-        if (data.type === OperatorRecorder.Add) {
+        if (data.type === OperationRecorder.Add) {
             tableView.removeRowsFromIndex(data.index, data.count, false);
-        } else if (data.type === OperatorRecorder.Delete) {
+        } else if (data.type === OperationRecorder.Delete) {
             if (data.index < 0 || data.count <= 0) {
                 return;
             }
@@ -156,13 +161,13 @@ Item {
                 item = items[i];
                 dataModel.insert(data.index, item);
             }
-        } else if (data.type === OperatorRecorder.Clear) {
+        } else if (data.type === OperationRecorder.Clear) {
             items = data.data;
             for (var i = 0; i < items.length; ++i) {
                 item = items[i];
                 dataModel.append(item);
             }
-        } else if (data.type === OperatorRecorder.Modify) {
+        } else if (data.type === OperationRecorder.Modify) {
             if (data.row < 0 || data.row >= dataModel.count) return;
             dataModel.setProperty(data.row, data.role, data.data);
         } else {
@@ -1215,10 +1220,7 @@ Item {
             }
         }
     }
-    //记录器，用来记录增删改操作。
-    OperationRecorder {
-        id: recorder
-    }
+
     QC14.TableView {
         id: tableView
         anchors.fill: parent
@@ -1310,7 +1312,7 @@ Item {
                 }
 
                 var recordObj = Object.create(null);
-                recordObj["type"] = OperatorRecorder.Add;
+                recordObj["type"] = OperationRecorder.Add;
                 recordObj["index"] = index;
                 recordObj["count"] = count;
                 recordObj["data"] = oldData;
@@ -1339,7 +1341,7 @@ Item {
                     oldData.push(dataModel.get(index + i));
                 }
                 var recordObj = Object.create(null);
-                recordObj["type"] = OperatorRecorder.Add;
+                recordObj["type"] = OperationRecorder.Add;
                 recordObj["index"] = index;
                 recordObj["count"] = count;
                 recordObj["data"] = oldData;
@@ -1363,7 +1365,7 @@ Item {
                     oldData.push(dataModel.get(dataModel.count - i));
                 }
                 var recordObj = Object.create(null);
-                recordObj["type"] = OperatorRecorder.Add;
+                recordObj["type"] = OperationRecorder.Add;
                 recordObj["index"] = dataModel.count - count;
                 recordObj["count"] = count;
                 recordObj["data"] = oldData;
@@ -1382,7 +1384,7 @@ Item {
                     oldData.push(dataModel.get(index + i));
                 }
                 var recordObj = Object.create(null);
-                recordObj["type"] = OperatorRecorder.Delete;
+                recordObj["type"] = OperationRecorder.Delete;
                 recordObj["index"] = index;
                 recordObj["count"] = count;
                 recordObj["data"] = oldData;
@@ -1405,7 +1407,7 @@ Item {
                 }
                 //record
                 var recordObj = Object.create(null);
-                recordObj["type"] = OperatorRecorder.Clear;
+                recordObj["type"] = OperationRecorder.Clear;
                 recordObj["data"] = datas;
                 recorder.record(JSON.stringify(recordObj));
             }
@@ -1414,7 +1416,7 @@ Item {
         function recordModifyData (row, role, oldData, newData) {
             //record
             var recordObj = Object.create(null);
-            recordObj["type"] = OperatorRecorder.Modify;
+            recordObj["type"] = OperationRecorder.Modify;
             recordObj["row"] = row;
             recordObj["role"] = role;
             recordObj["data"] = oldData;

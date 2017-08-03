@@ -245,7 +245,7 @@ Item {
             Text {
                 id: currentFileText
                 text: qsTr("当前文件 " + root.sourceFileName);
-                visible: !ProjectManager.currentProjectPath && root.sourceFileName
+                visible: root.sourceFileName
                 anchors.centerIn: parent
                 elide: Text.ElideLeft
                 horizontalAlignment: Text.AlignHCenter
@@ -273,6 +273,20 @@ Item {
                 tabRect.undo();
                 TableStatus.hasSaved = false;
             }
+            Rectangle {
+                anchors.right: parent.right
+                anchors.top: parent.top
+                width: 16
+                height: width
+                radius: width/2
+                color: "red"
+                visible: undoButton.count > 0
+                Text {
+                    anchors.centerIn: parent
+                    text: undoButton.count
+                    color: "white"
+                }
+            }
         }
         FHoverButton {
             id:redoButton
@@ -286,6 +300,20 @@ Item {
             onClicked: {
                 tabRect.redo();
                 TableStatus.hasSaved = false;
+            }
+            Rectangle {
+                anchors.right: parent.right
+                anchors.top: parent.top
+                width: 16
+                height: width
+                radius: width/2
+                color: "red"
+                visible: redoButton.count > 0
+                Text {
+                    anchors.centerIn: parent
+                    text: redoButton.count
+                    color: "white"
+                }
             }
         }
         //        FHoverButton {
@@ -925,51 +953,51 @@ Item {
         }
     }
     function showClearAllBox() {
-        UiController.showLayer("MessageBoxLayer")
-        UiController.setLayerProperty("MessageBoxLayer", "title", "警告")
-        UiController.setLayerProperty("MessageBoxLayer", "titleColor", "#000000")
-        UiController.setLayerProperty("MessageBoxLayer", "cancelButtonVisible", true)
-        UiController.setLayerProperty("MessageBoxLayer", "okButtonVisible", true)
-        UiController.setLayerProperty("MessageBoxLayer", "message", "确定要清空全部内容吗？ ")
-        UiController.setLayerProperty("MessageBoxLayer", "contentWidth", 400)
-        UiController.setLayerProperty("MessageBoxLayer", "contentHeight", 200)
-        UiController.setLayerProperty("MessageBoxLayer", "okButtonFunc", function() {
+        popDialog.reset();
+        popDialog.open();
+        popDialog.title = "警告"
+        popDialog.cancleButtonVisible = true;
+        popDialog.text = "确定要清空全部内容吗？"
+        popDialog.width = 400;
+        popDialog.height = 200;
+        popDialog.okClickFunc = function() {
             tabRect.clear();
             TableStatus.hasSaved = false;
-            UiController.hideLayer("MessageBoxLayer")
-        })
+            popDialog.close();
+        }
     }
     function showMessageBox(message) {
-        UiController.showLayer("MessageBoxLayer")
-        UiController.setLayerProperty("MessageBoxLayer", "title", "提示")
-        UiController.setLayerProperty("MessageBoxLayer", "titleColor", "#000000")
-        UiController.setLayerProperty("MessageBoxLayer", "cancelButtonVisible", false)
-        UiController.setLayerProperty("MessageBoxLayer", "okButtonVisible", true)
-        UiController.setLayerProperty("MessageBoxLayer", "message", message)
-        UiController.setLayerProperty("MessageBoxLayer", "contentWidth", 564)
-        UiController.setLayerProperty("MessageBoxLayer", "contentHeight", 324)
+        popDialog.reset();
+        popDialog.open();
+        popDialog.title = "提示"
+        popDialog.cancleButtonVisible = false;
+        popDialog.text = message
+        popDialog.width = 600;
+        popDialog.height = 400;
+        popDialog.okClickFunc = function() {
+            tabRect.clear();
+            TableStatus.hasSaved = false;
+            popDialog.close();
+        }
+
     }
     function showTemplateBox() {
-        UiController.showLayer("MessageBoxLayer")
-        UiController.setLayerProperty("MessageBoxLayer", "title", "模板库")
-        UiController.setLayerProperty("MessageBoxLayer", "okButtonText", "关闭")
-        UiController.setLayerProperty("MessageBoxLayer", "contentComponent", templateWindow)
-        UiController.setLayerProperty("MessageBoxLayer", "cancelButtonVisible", false)
-        UiController.setLayerProperty("MessageBoxLayer", "contentWidth", 400)
-        UiController.setLayerProperty("MessageBoxLayer", "contentHeight", 200)
+        popDialog.reset();
+        popDialog.open();
+        popDialog.title = "模板库"
+        popDialog.okButtonText = "关闭"
+        popDialog.cancleButtonVisible = false;
+        popDialog.text = ""
+        popDialog.width = 400;
+        popDialog.height = 200;
+        popDialog.contentComponent = templateWindow
     }
     function noProjectSave() {
-        //在有工程的时候，点击保存按钮直接保存到PreviewWorkingDir
-        //没有工程的时候点击保存，应该保存到正在编辑的文件
-        //没有导入的工程，也没有导入文件的时候，点击保存和另存为一样
         var err = tabRect.checkData();
         if (err) {
             root.showMessageBox(err)
         } else {
-            if (ProjectManager.currentProjectPath) {
-                //保存至临时工程目录
-                root.saveToJson(TableStatus.tempFilePath, true);
-            } else if (root.sourceFileName) {
+            if (root.sourceFileName) {
                 root.saveToJson(root.sourceFileName, false);
             } else {
                 saveAs();
@@ -1041,5 +1069,10 @@ Item {
             selectExisting = false;
             open();
         }
+    }
+    FPopDialog {
+        id: popDialog
+        width: 600
+        height: 400
     }
 }

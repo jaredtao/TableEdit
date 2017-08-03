@@ -21,7 +21,7 @@ class TableStatus : public QObject {
     Q_PROPERTY(bool saveWithIndented READ saveWithIndented WRITE setSaveWithIndented NOTIFY saveWithIndentedChanged)
     Q_PROPERTY(QString sourceJsonFilePath READ sourceJsonFilePath WRITE setSourceJsonFilePath NOTIFY sourceJsonFilePathChanged)
 
-    //上行帧所有name
+    //状态帧所有name
     Q_PROPERTY(QStringList signalNames READ signalNames WRITE setSignalNames NOTIFY signalNamesChanged)
     //上行专用帧所有name
     Q_PROPERTY(QStringList specialSignalNames READ specialSignalNames WRITE setSpecialSignalNames NOTIFY specialSignalNamesChanged)
@@ -38,7 +38,7 @@ public:
 
     const QString &sourceJsonFilePath() const;
 
-    //获取上行帧 name 对应的 bits
+    //获取状态帧 name 对应的 bits
     Q_INVOKABLE int getSignalBitByName(const QString &name);
     //获取上行专用帧 name 对应的 bits
     Q_INVOKABLE int getSpecialSignalBitByName(const QString &name);

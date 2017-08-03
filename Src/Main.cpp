@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<FileIO>("Tools", 1, 0, "FileIO");
     qmlRegisterType<FileInfo>("Tools", 1, 0, "FileInfo");
-    qmlRegisterType<FileIO>("Tools", 1, 0, "OperationRecorder");
+    qmlRegisterType<OperationRecorder>("Tools", 1, 0, "OperationRecorder");
 
     TableStatus tableStatus;
     QQuickView view;
