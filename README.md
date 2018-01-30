@@ -1,4 +1,5 @@
 # TableEdit
+[![Build Status](https://travis-ci.org/wentaojia2014/TableEdit.svg?branch=master)](https://travis-ci.org/wentaojia2014/TableEdit)
 
 
 ## 简介：
@@ -28,58 +29,4 @@
 ## 开发环境
 
 * Qt 5.9.0 Windows/Ubuntu
-
-## 所用JSON格式介绍
-
-如下
-`
-{
-
-    "version": "0.0.1",
-
-    "heartBeatInterval": 3000,
-    
-    "commands": [
-            {
-                "name": "applicationState" ,"bits": 8, "min": 0,
-    
-                "description": "0: 显示未初始化，例如开机视频播放,1: 开机动画进行中,2: 关机动画进行中,3: 自检中"
-            }
-        ],
-        "signals": [
-            {
-                "bits": 8,
-                "coefficient": 1,
-                "description": "MCU临时版本",
-                "invalid": "0xff",
-                "max": 100,
-                "min": 0,
-                "name": "mcuVersionMin",
-                "offset": 0
-            },
-            {
-                "bits": 5,
-                "coefficient": 1,
-                "description": "MCU中版本号 交付版本，每次交付样机加一",
-                "invalid": "0x1f",
-                "max": 30,
-                "min": 0,
-                "name": "mcuVersionMid",
-                "offset": 0
-            },
-            {
-                "bits": 3,
-                "coefficient": 1,
-                "description": "MCU主版本号 SOP版本号，量产加一",
-                "invalid": "0x7",
-                "max": 6,
-                "min": 0,
-                "name": "mcuVersionMax",
-                "offset": 0
-            }
-        ],
-        "specialSignals": [
-        ]
-    }
-`
 
