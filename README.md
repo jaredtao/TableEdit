@@ -1,6 +1,6 @@
 # TableEdit
 [![Build Status](https://travis-ci.org/wentaojia2014/TableEdit.svg?branch=master)](https://travis-ci.org/wentaojia2014/TableEdit)
-
+[![Build status](https://ci.appveyor.com/api/projects/status/o56f7y1tdctr9t08?svg=true)](https://ci.appveyor.com/project/jiawentao/tableedit)
 
 ## 简介：
 
