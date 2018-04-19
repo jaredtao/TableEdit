@@ -12,5 +12,5 @@ environment:
 
 build_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86_amd64
-  - qmake TableEdit.pro
+  - C:\Qt\5.9.4\msvc2017_64\bin\qmake.exe TableEdit.pro
   - nmake & exit 0
