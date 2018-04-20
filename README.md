@@ -8,9 +8,13 @@
 
 主要围绕TableView控件做一系列功能拓展。
 
+TableView对应的数据model，使用Qml/ListModel，数据的创建、导入等操作，全部使用qml/js实现。
+
+引入了JSONPath，快速访问JSON并转化到ListModel。
+
 内容上有些汽车行业相关的文字，请忽略。
 
-工程里面也有一些常用组件的封装可供参考，比如Slack风格的按钮、带三角形箭头的ToolTip、Popup做自定义弹窗等。
+工程里面也有一些常用组件的封装，比如Slack风格的按钮、带三角形箭头的ToolTip、Popup自定义弹窗等。
 
 ## 效果图：
 
