@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/wentaojia2014/TableEdit.svg?branch=master)](https://travis-ci.org/wentaojia2014/TableEdit)
 [![Build status](https://ci.appveyor.com/api/projects/status/o56f7y1tdctr9t08?svg=true)](https://ci.appveyor.com/project/jiawentao/tableedit)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/43adb845c2b046e3907b0b41897078f3)](https://www.codacy.com/app/wentaojia2014/TableEdit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=wentaojia2014/TableEdit&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/be832729-203d-4420-8c35-0fd4ce5e94aa)](https://codebeat.co/projects/github-com-wentaojia2014-tableedit-master)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/wentaojia2014/TableEdit/blob/master/LICENSE)
 ## 简介：
 
