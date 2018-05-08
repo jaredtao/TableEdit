@@ -34,5 +34,5 @@ TableView对应的数据model，使用Qml/ListModel，数据的创建、导入�
 
 ## 开发环境
 
-* Qt 5.9.0 Windows/Ubuntu
+* Qt 5.9.x Windows/Ubuntu
 
