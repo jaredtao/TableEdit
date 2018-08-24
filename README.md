@@ -12,7 +12,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/wentaojia2014/TableEdit/blob/master/LICENSE)
 
 ## 简介：
-***
+
 这是一个使用Qt + qml制作的表格编辑器。
 
 主要围绕TableView控件做一系列功能拓展。
@@ -24,7 +24,6 @@ TableView对应的数据model，使用Qml/ListModel，数据的创建、导入�
 内容上有些汽车行业相关的文字，请忽略。
 
 工程里面也有一些常用组件的封装，比如Slack风格的按钮、带三角形箭头的ToolTip、Popup自定义弹窗等。
-***
 
 ## 效果图：
 ![Demo](Image/demo1.png)
