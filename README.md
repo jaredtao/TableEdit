@@ -44,17 +44,17 @@ TableView对应的数据model，使用Qml/ListModel，数据的创建、导入�
 * Qt 5.9.x Windows/Ubuntu
 
 ## 联系方式:
-
+***
 |作者|贾文涛|
-|---|---
+|---|---|
 |QQ|759378563|
 |微信|xsd2410421|
 |邮箱|jared2020@163.com|
-|github|https://github.com/wentaojia2014|
+|blog|https://wentaojia2014.github.io/|
 
 ###### 请放心联系我，乐于提供相关帮助
-
-## **捐赠**
+***
+### **打赏**
 <img src="https://github.com/wentaojia2014/wentaojia2014.github.io/blob/master/img/weixin.jpg?raw=true" width="30%" height="30%" /><img src="https://github.com/wentaojia2014/wentaojia2014.github.io/blob/master/img/zhifubao.jpg?raw=true" width="30%" height="30%" />
 
 ###### 觉得分享的内容还不错, 就请作者喝杯咖啡吧~~
