@@ -33,14 +33,14 @@ matrix:
         directories:
             - /usr/local/Cellar/qt/5.12.3/
 before_install:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./scripts/macos/install.sh; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./scripts/ubuntu/install.sh; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then chmod a+x ./scripts/macos/install.sh;  ./scripts/macos/install.sh; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod a+x ./scripts/ubuntu/install.sh; ./scripts/ubuntu/install.sh; fi
 script:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./scripts/macos/build.sh; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./scripts/ubuntu/build.sh; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then chmod a+x ./scripts/macos/build.sh; ./scripts/macos/build.sh; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod a+x ./scripts/ubuntu/build.sh; ./scripts/ubuntu/build.sh; fi
 before_deploy:
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./scripts/macos/deploy.sh; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./scripts/ubuntu/deploy.sh; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then chmod a+x ./scripts/macos/deploy.sh; ./scripts/macos/deploy.sh; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod a+x ./scripts/ubuntu/deploy.sh; ./scripts/ubuntu/deploy.sh; fi
 deploy:              # 部署
   provider: releases # 部署到 GitHub Release，除此之外，Travis CI 还支持发布到 fir.im、AWS、Google App Engine 等
   api_key: $GITHUB_OAUTH_TOKEN # 填写 GitHub 的 token （Settings -> Personal access tokens -> Generate new token）
