@@ -17,6 +17,9 @@ SOURCES += Src/Main.cpp \
 RESOURCES += Qml.qrc \
     Image.qrc \
     Json.qrc
+
+DESTDIR = bin
+
 OTHER_FILES += README.md
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
