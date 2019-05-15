@@ -3,16 +3,16 @@
 表格编辑器
 
 ## Build status
-| [Linux][lin-link] | [Windows][win-link] |
+| [Ubuntu/MacOS][lin-link] | [Windows][win-link] |
 | :---------------: | :-----------------: |
 | ![lin-badge]      | ![win-badge]        |
 
-[lin-badge]: https://travis-ci.org/wentaojia2014/TableEdit.svg?branch=master "Travis build status"
-[lin-link]: https://travis-ci.org/wentaojia2014/TableEdit "Travis build status"
+[lin-badge]: https://travis-ci.org/jaredtao/TableEdit.svg?branch=master "Travis build status"
+[lin-link]: https://travis-ci.org/jaredtao/TableEdit "Travis build status"
 [win-badge]: https://ci.appveyor.com/api/projects/status/o56f7y1tdctr9t08?svg=true "AppVeyor build status"
 [win-link]: https://ci.appveyor.com/project/jiawentao/tableedit "AppVeyor build status"
 ## License
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/wentaojia2014/TableEdit/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jaredtao/TableEdit/blob/master/LICENSE)
 
 ## 简介：
 
