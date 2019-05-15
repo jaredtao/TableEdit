@@ -3,16 +3,20 @@
 表格编辑器
 
 ## Build status
-| [Ubuntu/MacOS][lin-link] | [Windows][win-link] |
-| :---------------: | :-----------------: |
-| ![lin-badge]      | ![win-badge]        |
+| [Ubuntu/MacOS][lin-link] | [Windows][win-link] |[License][license-link] | [Release][release-link]|[Download][download-link]|
+| :---------------: | :-----------------: | :-----------------:|:-----------------: |:-----------------: |
+| ![lin-badge]      | ![win-badge]        | ![license-badge] |![release-badge] | ![download-badge]|
 
 [lin-badge]: https://travis-ci.org/jaredtao/TableEdit.svg?branch=master "Travis build status"
 [lin-link]: https://travis-ci.org/jaredtao/TableEdit "Travis build status"
 [win-badge]: https://ci.appveyor.com/api/projects/status/o56f7y1tdctr9t08?svg=true "AppVeyor build status"
 [win-link]: https://ci.appveyor.com/project/jiawentao/tableedit "AppVeyor build status"
-## License
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jaredtao/TableEdit/blob/master/LICENSE)
+[release-link]: https://github.com/jaredtao/TableEdit/releases "Release status"
+[release-badge]: https://img.shields.io/github/release/jaredtao/TableEdit.svg?style=flat-square" "Release status"
+[download-link]: https://github.com/jaredtao/TableEdit/releases/latest "Download status"
+[download-badge]: https://img.shields.io/github/downloads/jaredtao/TableEdit/total.svg?style=flat-square "Download status"
+[license-link]: https://github.com/jaredtao/TableEdit/blob/master/LICENSE "LICENSE"
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg "MIT"
 
 ## 简介：
 
@@ -49,10 +53,11 @@ TableView对应的数据model，使用Qml/ListModel，数据的创建、导入�
 
 | 作者 | 涛哥                           |
 | ---- | -------------------------------- |
-| QQ、TIM   | 759378563                      |
+|开发理念 | 弘扬鲁班文化，传承工匠精神 |
+| QQ   | 759378563                  |
 | 微信 | xsd2410421                       |
 | 邮箱 | jared2020@163.com                |
-| blog | https://jaredtao.github.io/ |
+| blog | https://wentaojia2014.github.io/ |
 
 ***
 
