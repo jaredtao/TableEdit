@@ -24,9 +24,6 @@ matrix:
         bundler: true
         directories:
             - /usr/local/opt/qt
-    - os: windows
-        env:
-            - MSBUILD_PATH="c:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then chmod a+x ./scripts/macos/install.sh;  ./scripts/macos/install.sh; fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod a+x ./scripts/ubuntu/install.sh; ./scripts/ubuntu/install.sh; fi
