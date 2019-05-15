@@ -23,7 +23,7 @@ matrix:
       cache:
         bundler: true
         directories:
-            - /usr/local/Cellar/qt/5.12.3/
+            - /usr/local/opt/qt
     - os: osx
       osx_image: xcode9.4
       env: 
@@ -32,7 +32,7 @@ matrix:
       cache:
         bundler: true
         directories:
-            - /usr/local/Cellar/qt/5.12.3/
+            - /usr/local/opt/qt
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then chmod a+x ./scripts/macos/install.sh;  ./scripts/macos/install.sh; fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod a+x ./scripts/ubuntu/install.sh; ./scripts/ubuntu/install.sh; fi
