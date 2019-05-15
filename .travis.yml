@@ -14,6 +14,7 @@ matrix:
         apt: true
         directories:
             - /opt/qt512/
+            - ./linuxdeployqt.AppImage
     - os: osx
       osx_image: xcode10.2
       env: 

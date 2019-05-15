@@ -1,3 +1,3 @@
 #! /bin/bash
-/usr/local/Cellar/qt/5.12.3/bin/qmake 
+/usr/local/opt/qt/bin/qmake 
 make -j$(nproc) 
