@@ -1,8 +1,12 @@
 QT += qml quick
 
 CONFIG += c++11
-QMAKE_CFLAGS += -source-charset:utf-8
-QMAKE_CXXFLAGS += -source-charset:utf-8
+
+msvc{
+    QMAKE_CFLAGS += -source-charset:utf-8
+    QMAKE_CXXFLAGS += -source-charset:utf-8
+}
+
 HEADERS += \
     Src/FileIO.hpp \
     Src/FileInfo.hpp \
