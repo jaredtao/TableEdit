@@ -19,12 +19,29 @@ RESOURCES += Qml.qrc \
     Json.qrc
 
 DESTDIR = bin
+CONFIG(debug, debug|release) {
+    MOC_DIR = build/debug/moc
+    RCC_DIR = build/debug/rcc
+    UI_DIR = build/debug/ui
+    OBJECTS_DIR = build/debug/obj
+} else {
+    MOC_DIR = build/release/moc
+    RCC_DIR = build/release/rcc
+    UI_DIR = build/release/ui
+    OBJECTS_DIR = build/release/obj
+}
+
+
 
 OTHER_FILES += README.md \
     appveyor.yml \
     .travis.yml
-macos {
 
+macos {
+OTHER_FILES += \
+    scripts/macos/install.sh \
+    scripts/macos/build.sh \
+    scripts/macos/deploy.sh
 }
 
 linux {
