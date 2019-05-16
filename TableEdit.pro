@@ -20,7 +20,20 @@ RESOURCES += Qml.qrc \
 
 DESTDIR = bin
 
-OTHER_FILES += README.md
+OTHER_FILES += README.md \
+    appveyor.yml \
+    .travis.yml
+macos {
+
+}
+
+linux {
+OTHER_FILES += \
+    scripts/ubuntu/install.sh \
+    scripts/ubuntu/build.sh \
+    scripts/ubuntu/deploy.sh
+}
+
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
 
