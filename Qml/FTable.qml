@@ -1,4 +1,4 @@
-import QtQuick 2.7
+﻿import QtQuick 2.7
 import QtQuick.Controls 1.4 as QC14
 import QtQuick.Controls.Styles 1.4 as QCS14
 import QtQuick.Controls 2.1
@@ -1287,9 +1287,9 @@ Item {
                 }
             }
         }
-        readonly property var emptySignalRow : {"name": "", "bits": 1, "coefficient": 1, "offset": 0, "invalid": "", "description": ""};
-        readonly property var emptyCommandRow : {"name": "", "bits": 1, "default": 0, "description": ""};
-        readonly property var emptySpecialSignalRow : {"name": "", "type": 0};
+        readonly property var emptySignalRow : {"name": "", "bits": 1, "coefficient": 1, "offset": 0, "invalid": "", "description": ""}
+        readonly property var emptyCommandRow : {"name": "", "bits": 1, "default": 0, "description": ""}
+        readonly property var emptySpecialSignalRow : {"name": "", "type": 0}
         function addRowsAbove(count, needRecord) {
             var item = emptyCommandRow;
             if (root.tableType === "signals" )

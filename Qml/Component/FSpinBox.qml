@@ -1,4 +1,4 @@
-import QtQuick 2.7
+﻿import QtQuick 2.7
 import QtQuick.Controls 2.1
 
 SpinBox {
@@ -11,7 +11,7 @@ SpinBox {
 
     property bool showNan: false
     property bool boxShow: false
-    property alias displayText: textInput.displayText
+
     validator: DoubleValidator {
         bottom: Math.min(root.from, root.to)
         top:  Math.max(root.from, root.to)

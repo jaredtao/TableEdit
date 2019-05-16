@@ -1,4 +1,4 @@
-#include <QQmlEngine>
+﻿#include <QQmlEngine>
 #include <QQuickView>
 #include <QQmlContext>
 #include <QGuiApplication>
@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
+    app.setOrganizationName("jaredTao");
+    app.setOrganizationDomain("https://jaredtao.github.io");
     Logger::initLog();
 
     qmlRegisterType<FileIO>("Tools", 1, 0, "FileIO");
