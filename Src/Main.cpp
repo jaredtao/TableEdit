@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QGuiApplication>
 
+#include "Logger/Logger.h"
 #include "FileIO.hpp"
 #include "FileInfo.hpp"
 #include "TableStatus.hpp"
@@ -12,6 +13,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
+    Logger::initLog();
 
     qmlRegisterType<FileIO>("Tools", 1, 0, "FileIO");
     qmlRegisterType<FileInfo>("Tools", 1, 0, "FileInfo");
