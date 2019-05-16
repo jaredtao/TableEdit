@@ -6,13 +6,16 @@ HEADERS += \
     Src/FileIO.hpp \
     Src/FileInfo.hpp \
     Src/TableStatus.hpp \
-    Src/OperationRecorder.hpp
+    Src/OperationRecorder.hpp \
+    Src/Logger/Logger.h \
+    Src/Logger/LoggerTemplate.h
 
 SOURCES += Src/Main.cpp \
     Src/FileIO.cpp \
     Src/FileInfo.cpp \
     Src/TableStatus.cpp \
-    Src/OperationRecorder.cpp
+    Src/OperationRecorder.cpp \
+    Src/Logger/Logger.cpp
 
 RESOURCES += Qml.qrc \
     Image.qrc \
