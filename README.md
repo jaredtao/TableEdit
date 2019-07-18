@@ -54,10 +54,13 @@ TableView对应的数据model，使用Qml/ListModel，数据的创建、导入�
 | 作者 | 涛哥                           |
 | ---- | -------------------------------- |
 |开发理念 | 弘扬鲁班文化，传承工匠精神 |
-| QQ   | 759378563                  |
-| 微信 | xsd2410421                       |
+| 博客 | https://jaredtao.github.io/ |
+|知乎专栏| https://zhuanlan.zhihu.com/TaoQt |
+|微信公众号| Qt进阶之路 |
+|QQ群| 734623697(高质量群，只能交流技术、分享知识、帮助解决实际问题）|
 | 邮箱 | jared2020@163.com                |
-| blog | https://wentaojia2014.github.io/ |
+| 微信 | xsd2410421                       |
+| QQ、TIM | 759378563                      |
 
 ***
 
