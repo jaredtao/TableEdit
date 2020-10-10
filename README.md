@@ -18,6 +18,8 @@
 [license-link]: https://github.com/jaredtao/TableEdit/blob/master/LICENSE "LICENSE"
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg "MIT"
 
+(此项目为早期使用QtQuick.Controls 1 的作品，已不再维护-- 2020/10/10)
+
 ## 简介：
 
 这是一个使用Qt + qml制作的表格编辑器。
