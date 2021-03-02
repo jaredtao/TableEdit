@@ -20,7 +20,7 @@
 
 ## 注意
 
-此项目为早期使用QtQuick.Controls 1 的作品，已不再维护-- 2020/10/10
+此项目为早期使用QtQuick.Controls 1 的作品，**已不再维护** -- 2020/10/10
 
 基于QtQuick.Controls 2 的新版表格已经实现，可以参考TaoQuick项目https://github.com/jaredtao/taoquick
 
